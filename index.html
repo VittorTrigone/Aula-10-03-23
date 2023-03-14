@@ -5,41 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
-<body style="background-color: rgb(224, 112, 159); padding: 0; margin: 0;">
-    <nav style="width: 100%; height: 60px; background-color: rgb(99, 99, 99); display: flex; flex-direction: column; justify-content: center; box-shadow: 0px 5px 50px 5px black;">
-        <h1 style="text-align: center; ">Calculadora</h1>
+<style>
+    body{
+        background-color: rgb(255, 255, 255);
+        padding: 0;
+        margin: 0;
+    }
+
+    nav{
+        width: 100%;
+        height: 60px;
+        background-color: rgb(48, 48, 48);
+        display: flex;
+        flex-direction: column;
+        justify-content: center; box-shadow: 0px 5px 50px 5px black;
+    }
+
+    nav h1{
+        text-align: center; color: white;
+    }
+
+    .titulo{
+        text-align: center;
+        color: rgb(0, 0, 0);
+        padding: 80px;
+        font-size: 60px;
+    }
+</style>
+<body>
+    <nav>
+        <h1>Víttor Trigone Dias</h1>
     </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <h1 class="titulo">Calculadora</h1>
     <center>
     <form style="display: flex; flex-direction: column; width: 20%; align-items: center;">
         <input style="width: 120px; height: 20px; border-style: solid; border-color: black; border-radius: 10px;" id="num1" type="text"></input>
         <br>
         <input style="width: 120px; height: 20px; border-style: solid; border-color: black; border-radius: 10px;" id="num2" type="text"></input>
         <br>
-        <button type="button" onclick="somar()">Somar</button>
+        <div>
+            <button type="button" onclick="contas('+')"><i class="fa-solid fa-plus"></i></i></button>
+            <button type="button" onclick="contas('-')"><i class="fa-solid fa-minus"></i></button>
+            <button type="button" onclick="contas('/')"><i class="fa-solid fa-divide"></i></i></button>
+            <button type="button" onclick="contas('*')"><i class="fa-solid fa-xmark"></i></i></button>
+        </div>
         <br>
-        <input style="width: 120px; height: 20px; border-style: solid; border-color: black; border-radius: 10px;" id="soma" type="text" disabled></input>
+        <input style="width: 120px; height: 20px; border-style: solid; border-color: rgba(0, 0, 0, 0.315); border-radius: 10px;" id="conta" type="text" disabled></input>
     </form>
     </center>
     <script>
-        function somar()
+        function contas(op)
         {
-            var num1, num2, soma;
+            var num1, num2, resultado;
 
             num1 = parseFloat(document.getElementById("num1").value);
             num2 = parseFloat(document.getElementById("num2").value);
 
-            soma = num1 + num2;
+            switch(op)
+            {
+                case '+':
+                    resultado = num1 + num2;
+                break;
 
-            document.getElementById("soma").value = soma;
+                case '-':
+                    resultado = num1 - num2;
+                break;
+
+                case '/':
+                    resultado = num1 / num2;
+                break;
+
+                case '*':
+                    resultado = num1 * num2;
+                break;
+            }
+            
+            document.getElementById("conta").value = resultado;
         }
     </script>
+    <script src="https://kit.fontawesome.com/f55ca80b44.js" crossorigin="anonymous"></script>
 </body>
 </html>
